@@ -45,7 +45,6 @@ int selSort(int *pArray, int pLength)
 
 int fill(int *pArray, int pLength, int pMin, int pMax)
 {
-    srand(time(NULL));
     for (int i = 0; i < pLength; i++)
     {
 
@@ -57,21 +56,34 @@ int fill(int *pArray, int pLength, int pMin, int pMax)
 // prints first and last 3 fields of array
 int printArr(int *pArray, int pLength)
 {
-    for (int i = 0; i < 3; i++)
+    printf("length %d   ", pLength);
+
+    if (pLength > 7)
     {
-        printf("%d ", *(pArray + i));
+        for (int i = 0; i < 3; i++)
+        {
+            printf("%d ", *(pArray + i));
+        }
+        printf(" ... ");
+        for (int j = pLength - 3; j < pLength; j++)
+        {
+            printf("%d ", *(pArray + j));
+        }
     }
-    printf(" ... ");
-    for (int j = pLength - 3; j < pLength; j++)
+    // for arrays shorter than 7 chars
+    else
     {
-        printf("%d ", *(pArray + j));
+        for (int i = 0; i < pLength; i++)
+        {
+            printf("%d ", *(pArray + i));
+        }
     }
     printf("\n\n");
 }
 int main()
 {
     srand(time(NULL));
-    int nMax = 10000;
+    int nMax = 200000000;
     int nMin = 1;
     int thisLength = rand() % ((nMax + 1) - nMin) + nMin;
     int arr[thisLength];
