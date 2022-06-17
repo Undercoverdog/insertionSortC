@@ -83,7 +83,7 @@ int printArr(int *pArray, int pLength)
 int main()
 {
     srand(time(NULL));
-    int nMax = 200000000;
+    int nMax = 2000000;
     int nMin = 1;
     int thisLength = rand() % ((nMax + 1) - nMin) + nMin;
     int arr[thisLength];
